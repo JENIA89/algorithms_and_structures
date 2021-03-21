@@ -29,5 +29,22 @@ const searchFunc = (array, item) => {
   return position;
 };
 
-console.log(searchFunc(arr, 4));
+// Рекурсивный способ
+
+function recurBinarySearch(array, item, start, end) {
+  let middle = Math.floor((start + end) / 2);
+  count += 1;
+  if (item === array[middle]) {
+    return middle;
+  }
+
+  if (item < array[middle]) {
+    return recurBinarySearch(array, item, start, middle - 1);
+  } else {
+    return recurBinarySearch(array, item, middle - 1, end);
+  }
+}
+
+console.log(recurBinarySearch(arr, 15, 0, arr.length));
+console.log(searchFunc(arr, 15));
 console.log(count);
